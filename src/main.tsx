@@ -10,6 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <NextUIProvider className='p-8 lg:p-0 h-full grid'>
     <Routes>
       <Route path="/login" element={<AuthForm/>}></Route>
+      <Route path='/' element={<App/>}></Route>
     </Routes>
   </NextUIProvider>
   </BrowserRouter>

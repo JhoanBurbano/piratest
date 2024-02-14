@@ -13,7 +13,7 @@ const Searchbar: React.FC<SearchBarProps> = ({ searchHandler }) => {
     searchHandler(value);
   };
   return (
-    <div className="h-60px w-full sticky top-5 z-10">
+    <div className="h-60px w-full sticky top-5 z-40">
       <Input
         label="Search"
         radius="lg"

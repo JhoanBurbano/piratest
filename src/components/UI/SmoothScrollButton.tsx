@@ -24,7 +24,7 @@ const SmoothScrollButton = () => {
   }, []);
   return (
     <button
-      className="fixed p-2 bottom-4 right-4 bg-red-600 text-white fa-bounce h-[50px] w-[50px] flex justify-center items-center rounded-full shadow-2xl"
+      className="fixed p-2 bottom-4 right-4 bg-red-600 text-white fa-bounce h-[50px] w-[50px] flex justify-center items-center rounded-full shadow-2xl z-30"
       onClick={handleScrollBar}
     >
       <i

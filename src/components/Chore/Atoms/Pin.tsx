@@ -4,7 +4,7 @@ import { PinPreview } from '../../../interfaces/pin.interface';
 import { PinSize } from '../../../enums/pin.enum';
 import galleryService from '../../../services/gallery.service';
 import { getPinById, searchImageById } from '../../../store/thunks/pin.thunk';
-import { Button } from '@nextui-org/react';
+import { Button, Image } from '@nextui-org/react';
 
 const Pin: React.FC<PinPreview & { isCustom?: boolean }> = ({
   id,
@@ -42,10 +42,16 @@ const Pin: React.FC<PinPreview & { isCustom?: boolean }> = ({
       onMouseOver={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
     >
-      <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" />
+      <Image
+      src={img}
+      loading= "lazy"
+      classNames={{img: "h-full w-full object-cover", wrapper: 'h-full'}}
+      className='max-w-max h-full'
+      isBlurred
+      />
 
       {show && (
-        <section className="absolute bottom-0 w-full h-full bg-[#21212188] transition-all grid content-between p-2 animate-appearance-in">
+        <section className="absolute bottom-0 w-full h-full bg-[#21212188] transition-all grid content-between p-2 animate-appearance-in z-30">
           <span className="text-sm  text-white flex gap-1 items-center">
             <i className="fa-solid fa-eye"></i>
             <p>{views}</p>

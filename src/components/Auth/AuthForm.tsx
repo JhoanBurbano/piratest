@@ -11,6 +11,7 @@ import {
 import { ToogleAuth } from '../../enums/auth.enum.ts';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../enums/paths.enum.ts';
+import classNames from 'classnames';
 
 interface AuthFormProps {
   type: ToogleAuth;
@@ -204,7 +205,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
                 color="danger"
                 variant={type == ToogleAuth.REGISTER ? 'solid' : 'bordered'}
                 onClick={handleClickSingUp}
-                className="w-32"
+                className={classNames("w-32 border-red-600", {"bg-red-600": type == ToogleAuth.REGISTER })}
               >
                 Sing Up
               </Button>
@@ -212,7 +213,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
                 color="danger"
                 variant={type == ToogleAuth.LOGIN ? 'solid' : 'bordered'}
                 onClick={handleClickSingIn}
-                className="w-32"
+                className={classNames("w-32 border-red-600", {"bg-red-600": type == ToogleAuth.LOGIN })}
               >
                 Sing In
               </Button>

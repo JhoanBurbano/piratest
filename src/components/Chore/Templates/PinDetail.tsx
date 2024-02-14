@@ -33,9 +33,9 @@ const PinDetail: React.FC<PinDetailProps> = () => {
                   src={pin?.img}
                   loading="lazy"
                   radius="none"
-                  className="m-auto"
-                  isZoomed
-                  classNames={{ img: 'rounded-t-2xl md:rounded-l-2xl' }}
+                  isBlurred
+                  classNames={{img: "h-full w-full object-cover rounded-t-2xl md:rounded-l-2xl", wrapper: 'h-full'}}
+                  className='max-w-max h-full m-auto md:min-h-[500px]'
                 />
               </section>
               <section className="flex flex-col justify-between md:p-8 pl-2 gap-2 md:gap-4 w-[95%] md:max-w-max">

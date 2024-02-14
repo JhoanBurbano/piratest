@@ -9,7 +9,7 @@ import { setLoader } from '../store/slices/ui.slice';
 import { debounce } from '../utils/common.utils';
 
 const Community = () => {
-  const [search, setSearch ] = useState<string>('')
+  const [search, setSearch] = useState<string>('');
   const dispatch = useAppDispatch();
   function handleRequest(value: string) {
     dispatch(searchPinByTag(value));
@@ -17,8 +17,7 @@ const Community = () => {
 
   const handleRequestDebounced = useCallback(
     debounce((value: string) => {
-      setSearch(value),
-      handleRequest(value)
+      setSearch(value), handleRequest(value);
     }, 300),
     [],
   );
@@ -26,7 +25,6 @@ const Community = () => {
     dispatch(setLoader(true));
     let number = 0;
     const unsuscribe = pinRepository.getAllDocumentsObserver(({ docs }) => {
-      console.log(number > 0);
       const data = docs.map((d) => ({ id: d.id, ...d.data() }));
       dispatch(updateUsersPin({ pins: data as PinUploaded[], showNotification: number > 0 }));
       number++;
@@ -40,7 +38,7 @@ const Community = () => {
   return (
     <>
       <Searchbar searchHandler={handleRequestDebounced} />
-      {search ? <h1 className=''>Resultados de busqueda</h1> : null}
+      {search ? <h1 className="">Resultados de busqueda</h1> : null}
       <PinLists showLoadMore={false} isCustom />
     </>
   );

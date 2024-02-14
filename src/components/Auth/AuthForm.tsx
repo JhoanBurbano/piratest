@@ -39,7 +39,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
       return router(PATHS.REGISTER);
     }
     handleSubmit(({ email, password, username }) => {
-      if(!terms)return;
+      if (!terms) return;
       dispatch(thunkSignUpWithEmailAndPassword({ email, password, username: username! }));
     })();
   };
@@ -49,7 +49,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
       return router(PATHS.LOGIN);
     }
     handleSubmit((userData) => {
-      if(!terms)return;
+      if (!terms) return;
       dispatch(thunkSignInWithEmailAndPassword(userData));
     })();
   };
@@ -60,7 +60,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
 
   useEffect(() => {
     setValue('password', '');
-    setValue('username', '', {shouldDirty: false});
+    setValue('username', '', { shouldDirty: false });
   }, [type]);
 
   return (
@@ -197,7 +197,9 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
                   I agree <Link color="danger">Terms</Link> and{' '}
                   <Link color="danger">Privacy Policy</Link>.
                 </Checkbox>
-                <p className='text-red-600 text-xs pl-8'>{!terms && 'You must accept Privacy & Policy Terms'}</p>
+                <p className="text-red-600 text-xs pl-8">
+                  {!terms && 'You must accept Privacy & Policy Terms'}
+                </p>
               </span>
             )}
             <span className="flex justify-evenly">
@@ -205,7 +207,9 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
                 color="danger"
                 variant={type == ToogleAuth.REGISTER ? 'solid' : 'bordered'}
                 onClick={handleClickSingUp}
-                className={classNames("w-32 border-red-600", {"bg-red-600": type == ToogleAuth.REGISTER })}
+                className={classNames('w-32 border-red-600', {
+                  'bg-red-600': type == ToogleAuth.REGISTER,
+                })}
               >
                 Sing Up
               </Button>
@@ -213,7 +217,9 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
                 color="danger"
                 variant={type == ToogleAuth.LOGIN ? 'solid' : 'bordered'}
                 onClick={handleClickSingIn}
-                className={classNames("w-32 border-red-600", {"bg-red-600": type == ToogleAuth.LOGIN })}
+                className={classNames('w-32 border-red-600', {
+                  'bg-red-600': type == ToogleAuth.LOGIN,
+                })}
               >
                 Sing In
               </Button>

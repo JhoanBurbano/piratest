@@ -43,11 +43,11 @@ const Pin: React.FC<PinPreview & { isCustom?: boolean }> = ({
       onMouseLeave={() => setShow(false)}
     >
       <Image
-      src={img}
-      loading= "lazy"
-      classNames={{img: "h-full w-full object-cover", wrapper: 'h-full'}}
-      className='max-w-max h-full'
-      isBlurred
+        src={img}
+        loading="lazy"
+        classNames={{ img: 'h-full w-full object-cover', wrapper: 'h-full' }}
+        className="max-w-max h-full"
+        isBlurred
       />
 
       {show && (

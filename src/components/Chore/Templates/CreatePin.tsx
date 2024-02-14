@@ -26,7 +26,6 @@ const CreatePin = () => {
   });
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    console.log('acc :>> ', acceptedFiles, URL.createObjectURL(acceptedFiles[0]));
     setFile(acceptedFiles.at(0));
     setSrc(URL.createObjectURL(acceptedFiles[0]));
   }, []);
@@ -40,12 +39,8 @@ const CreatePin = () => {
 
   const handleImageLoad = () => {
     if (ref.current) {
-      setValue('width', ref.current.width),
-        setValue('height', ref.current.height),
-        console.log({
-          width: ref.current.width,
-          height: ref.current.height,
-        });
+      setValue('width', ref.current.width);
+      setValue('height', ref.current.height);
     }
   };
 
@@ -68,7 +63,6 @@ const CreatePin = () => {
       return;
     }
     handleSubmit(async (data) => {
-      console.log('data>', data, file, formState.isValid);
       dispatch(createNewPost({ file: file!, data }));
     })();
   };

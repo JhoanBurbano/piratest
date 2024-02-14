@@ -119,8 +119,7 @@ export const createNewPost = createAsyncThunk(
         userProfile: photoURL!,
         userName: displayName!,
       };
-      const response = await GalleryService.createNewPin(file, dataToUpload);
-      console.log('response :>> ', response);
+      await GalleryService.createNewPin(file, dataToUpload);
       dispatch(setLoader(false));
     } catch (error) {
       const { notify: notifyPayload, path: pathToRedirect } =
@@ -141,7 +140,6 @@ export const updateUsersPin = createAsyncThunk(
     { dispatch },
   ) => {
     try {
-      console.log('showNotification :>> ', showNotification);
       if (showNotification) {
         dispatch(
           setNotify({

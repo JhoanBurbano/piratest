@@ -59,8 +59,8 @@ export const UiSlice = createSlice({
       .addCase(thunkSignInWithEmailAndPassword.fulfilled, (state) => {
         state.path = PATHS.HOME;
       })
-      .addCase(thunkSignUpWithEmailAndPassword.fulfilled, (state)=>{
-        state.path = PATHS.LOGIN
+      .addCase(thunkSignUpWithEmailAndPassword.fulfilled, (state) => {
+        state.path = PATHS.LOGIN;
       })
       .addCase(thunkSignOut.fulfilled, (state) => {
         state.path = PATHS.LOGIN;

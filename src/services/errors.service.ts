@@ -2,14 +2,11 @@ import { Error as FirebaseError } from '@firebase/auth-types';
 import { AuthErrorCodes } from 'firebase/auth/web-extension';
 import { CustomErrorResponse } from '../interfaces/errors.interface';
 import { PATHS } from '../enums/paths.enum';
-import { FirestoreError } from 'firebase/firestore';
 
 class ErrorsService {
   handleGeneralError(error: unknown): CustomErrorResponse {
     if (this.isFirebaseError(error)) {
       return this.handleFirebaseError(error as FirebaseError);
-    } else if (error instanceof FirestoreError) {
-      console.error(error, error.code);
     } else {
       console.error('Error no manejado:', error, (error as { code: string; message: string }).code);
     }
@@ -28,7 +25,6 @@ class ErrorsService {
   }
 
   handleFirebaseError(error: FirebaseError): CustomErrorResponse {
-    console.log(error.code);
     switch (error.code) {
       case AuthErrorCodes.EMAIL_EXISTS:
         return {

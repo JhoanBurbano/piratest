@@ -35,18 +35,18 @@ export default function AppNavbar() {
       <section className="flex flex-col gap-6 items-center w-full">
         <Dropdown placement="bottom-end" className="max-h-max">
           <DropdownTrigger>
-              <Avatar
-                isBordered
-                as="button"
-                className="transition-transform"
-                color="secondary"
-                name="Jason Hughes"
-                size="sm"
-                src={
-                  user?.photoURL ||
-                  'https://firebasestorage.googleapis.com/v0/b/piratest-cheaf.appspot.com/o/avatars%2Fdefault.jpg?alt=media&token=81f58597-20b9-44c3-a26a-6e9118081abd'
-                }
-              />
+            <Avatar
+              isBordered
+              as="button"
+              className="transition-transform"
+              color="secondary"
+              name="Jason Hughes"
+              size="sm"
+              src={
+                user?.photoURL ||
+                'https://firebasestorage.googleapis.com/v0/b/piratest-cheaf.appspot.com/o/avatars%2Fdefault.jpg?alt=media&token=81f58597-20b9-44c3-a26a-6e9118081abd'
+              }
+            />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
             <DropdownItem key="profile" className="h-14 gap-2" textValue={user!.email!}>
@@ -59,7 +59,10 @@ export default function AppNavbar() {
           </DropdownMenu>
         </Dropdown>
         <Tooltip placement="right" color="danger" content="Pin Pixabay">
-          <button className="text-2xl border-1 border-gray-600 p-1 rounded-full w-[45px] h-[45px] shadow-lg hover:bg-red-600 hover:text-white hover:border-white" onClick={() => handleClickPlus(PATHS.HOME)}>
+          <button
+            className="text-2xl border-1 border-gray-600 p-1 rounded-full w-[45px] h-[45px] shadow-lg hover:bg-red-600 hover:text-white hover:border-white"
+            onClick={() => handleClickPlus(PATHS.HOME)}
+          >
             <i className="fa-regular fa-image fa-shake"></i>
           </button>
         </Tooltip>

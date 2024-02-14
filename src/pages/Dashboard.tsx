@@ -28,7 +28,7 @@ const Dashboard = () => {
   return (
     <>
       <Searchbar searchHandler={searchHandler} />
-      {search ? <h2>Resulados de busqueda:</h2> : null}
+      {search ? <h2>Resultados de busqueda:</h2> : null}
       <PinLists handleLoadMore={handleRequest} />
     </>
   );

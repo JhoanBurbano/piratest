@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { PinLists, Searchbar } from '../components';
 import { useAppDispatch } from '../hooks/state.hooks';
 import pinRepository from '../repositories/pin.repository';
@@ -9,13 +9,17 @@ import { setLoader } from '../store/slices/ui.slice';
 import { debounce } from '../utils/common.utils';
 
 const Community = () => {
+  const [search, setSearch ] = useState<string>('')
   const dispatch = useAppDispatch();
   function handleRequest(value: string) {
     dispatch(searchPinByTag(value));
   }
 
   const handleRequestDebounced = useCallback(
-    debounce((value: string) => handleRequest(value), 300),
+    debounce((value: string) => {
+      setSearch(value),
+      handleRequest(value)
+    }, 300),
     [],
   );
   useEffect(() => {
@@ -36,6 +40,7 @@ const Community = () => {
   return (
     <>
       <Searchbar searchHandler={handleRequestDebounced} />
+      {search ? <h1 className=''>Resultados de busqueda</h1> : null}
       <PinLists showLoadMore={false} isCustom />
     </>
   );

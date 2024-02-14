@@ -60,7 +60,7 @@ export default function AppNavbar() {
         </Dropdown>
         <Tooltip placement="right" color="danger" content="Pin Pixabay">
           <button className="text-2xl border-1 border-gray-600 p-1 rounded-full w-[45px] h-[45px] shadow-lg hover:bg-red-600 hover:text-white hover:border-white" onClick={() => handleClickPlus(PATHS.HOME)}>
-            <i className="fa-regular fa-image"></i>
+            <i className="fa-regular fa-image fa-shake"></i>
           </button>
         </Tooltip>
 
@@ -89,7 +89,7 @@ export default function AppNavbar() {
             className="text-2xl border-1 border-gray-600 p-1 rounded-full w-[45px] h-[45px] shadow-lg hover:bg-red-600 hover:text-white hover:border-white "
             onClick={() => handleClickPlus(PATHS.NEW_POST)}
           >
-            <i className="fa-solid fa-plus"></i>
+            <i className="fa-solid fa-plus fa-shake"></i>
           </button>
         </Tooltip>
       </section>

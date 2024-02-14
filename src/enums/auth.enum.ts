@@ -1,4 +1,4 @@
 export enum ToogleAuth {
-    REGISTER = "REGISTER",
-    LOGIN = "LOGIN"
+  REGISTER = 'REGISTER',
+  LOGIN = 'LOGIN',
 }

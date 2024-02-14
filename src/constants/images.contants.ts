@@ -1,5 +1,5 @@
-import WomanPattern from '../assets/woman-pattern.jpg'
+import WomanPattern from '../assets/woman-pattern.jpg';
 
 export const ImagesUrl = {
-    WomanPattern
-}
+  WomanPattern,
+};

@@ -1,5 +1,5 @@
 import { Button, Checkbox, Input, Link } from '@nextui-org/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { UserData } from '../../interfaces/user.interface';
 import { useAppDispatch } from '../../hooks/state.hooks';
@@ -18,7 +18,8 @@ interface AuthFormProps {
 
 const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
   const [isVisible, setIsVisible] = React.useState(false);
-  const { control, handleSubmit } = useForm<UserData>({
+  const [terms, setTerms] = React.useState(false);
+  const { control, handleSubmit, setValue } = useForm<UserData>({
     defaultValues: {
       username: '',
       email: '',
@@ -37,6 +38,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
       return router(PATHS.REGISTER);
     }
     handleSubmit(({ email, password, username }) => {
+      if(!terms)return;
       dispatch(thunkSignUpWithEmailAndPassword({ email, password, username: username! }));
     })();
   };
@@ -46,6 +48,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
       return router(PATHS.LOGIN);
     }
     handleSubmit((userData) => {
+      if(!terms)return;
       dispatch(thunkSignInWithEmailAndPassword(userData));
     })();
   };
@@ -53,6 +56,11 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
   const handleGoogleSign = async () => {
     dispatch(thunkSignInWithGoogle());
   };
+
+  useEffect(() => {
+    setValue('password', '');
+    setValue('username', '', {shouldDirty: false});
+  }, [type]);
 
   return (
     <>
@@ -107,7 +115,13 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
               <Controller
                 name="email"
                 control={control}
-                rules={{ required: 'Email is required' }}
+                rules={{
+                  required: 'Email is required',
+                  pattern: {
+                    value: /^[\w-]+(\.[\w-]+)*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/,
+                    message: 'Username must be a valid email',
+                  },
+                }}
                 render={({ field, fieldState }) => (
                   <Input
                     type="email"
@@ -130,7 +144,14 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
               <Controller
                 name="password"
                 control={control}
-                rules={{ required: 'Password is required' }}
+                rules={{
+                  required: 'Password is required',
+                  minLength: { value: 8, message: 'Pasword must have a minimum of 8 characters.' },
+                  maxLength: {
+                    value: 16,
+                    message: 'Password must have a maximum of 16 characters ',
+                  },
+                }}
                 render={({ field, fieldState }) => (
                   <Input
                     label="Password"
@@ -166,10 +187,16 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
             </span>
             {type == ToogleAuth.REGISTER && (
               <span>
-                <Checkbox size="lg" color="danger">
+                <Checkbox
+                  size="lg"
+                  color="danger"
+                  checked={terms}
+                  onChange={(e) => setTerms(e.target.checked)}
+                >
                   I agree <Link color="danger">Terms</Link> and{' '}
                   <Link color="danger">Privacy Policy</Link>.
                 </Checkbox>
+                <p className='text-red-600 text-xs pl-8'>{!terms && 'You must accept Privacy & Policy Terms'}</p>
               </span>
             )}
             <span className="flex justify-evenly">

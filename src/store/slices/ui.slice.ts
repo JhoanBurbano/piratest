@@ -7,6 +7,7 @@ import {
   thunkSignInWithEmailAndPassword,
   thunkSignInWithGoogle,
   thunkSignOut,
+  thunkSignUpWithEmailAndPassword,
 } from '../thunks/auth.thunk';
 import { createNewPost } from '../thunks/pin.thunk';
 
@@ -57,6 +58,9 @@ export const UiSlice = createSlice({
       })
       .addCase(thunkSignInWithEmailAndPassword.fulfilled, (state) => {
         state.path = PATHS.HOME;
+      })
+      .addCase(thunkSignUpWithEmailAndPassword.fulfilled, (state)=>{
+        state.path = PATHS.LOGIN
       })
       .addCase(thunkSignOut.fulfilled, (state) => {
         state.path = PATHS.LOGIN;

@@ -33,7 +33,6 @@ export default function AppNavbar() {
         <i className="fa-brands fa-pinterest"></i>
       </section>
       <section className="flex flex-col gap-6 items-center w-full">
-            <Tooltip placement="right" color="danger" content="User">
         <Dropdown placement="bottom-end" className="max-h-max">
           <DropdownTrigger>
               <Avatar
@@ -59,7 +58,6 @@ export default function AppNavbar() {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-            </Tooltip>
         <Tooltip placement="right" color="danger" content="Pin Pixabay">
           <button className="text-2xl border-1 border-gray-600 p-1 rounded-full w-[45px] h-[45px] shadow-lg hover:bg-red-600 hover:text-white hover:border-white" onClick={() => handleClickPlus(PATHS.HOME)}>
             <i className="fa-regular fa-image"></i>

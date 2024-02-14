@@ -2,6 +2,10 @@
 
 This project is a dynamic and visually appealing website inspired by Pinterest, developed using React JS. It includes features such as authentication, image galleries, collaborative image uploads, and more. The project utilizes Firebase Authentication for user registration and login, as well as Firestore for real-time data storage.
 
+## Deploy
+This page was deployed on the next link:
+[Piratest](https://piratest.vercel.app/)
+
 ## Requirements
 
 1. **Authentication and Registration:**

@@ -1,4 +1,4 @@
-import { DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar } from '@nextui-org/react';
+import { DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar, Tooltip } from '@nextui-org/react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../../store/slices/auth.slice';
 import { useAppDispatch } from '../../../hooks/state.hooks';
@@ -28,6 +28,7 @@ export default function AppNavbar() {
       <section className="flex flex-col gap-6 items-center w-full">
         <Dropdown placement="bottom-end" className="max-h-max">
           <DropdownTrigger>
+      <Tooltip placement='right' color='danger' content="User">
             <Avatar
               isBordered
               as="button"
@@ -40,6 +41,7 @@ export default function AppNavbar() {
                 'https://firebasestorage.googleapis.com/v0/b/piratest-cheaf.appspot.com/o/avatars%2Fdefault.jpg?alt=media&token=81f58597-20b9-44c3-a26a-6e9118081abd'
               }
             />
+      </Tooltip>
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
             <DropdownItem key="profile" className="h-14 gap-2" textValue={user!.email!}>
@@ -51,29 +53,41 @@ export default function AppNavbar() {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
+      <Tooltip placement='right' color='danger' content="Notify">
         <button className="text-2xl border-1 border-gray-600 p-1 rounded-full w-[45px] h-[45px] shadow-lg ">
           <i className="fa-solid fa-bell"></i>
         </button>
+      </Tooltip>
+        
+      <Tooltip placement='right' color='danger' content="Shared Uploads">
         <button
           className="text-2xl border-1 border-gray-600 p-1 rounded-full w-[45px] h-[45px] shadow-lg "
           onClick={() => handleClickPlus(PATHS.USERS_POST)}
         >
           <i className="fa-solid fa-users fa-shake"></i>
         </button>
+        </Tooltip>
       </section>
+      <Tooltip placement='right' color='danger' content="Favs">
+      
       <section className="text-2xl border-1 border-black p-1 rounded-full w-[45px] h-[45px] shadow-lg flex items-center justify-center bg-black text-white">
         <i className="fa-solid fa-heart "></i>
       </section>
+      </Tooltip>
       <section className="flex flex-col gap-6 items-center w-full">
+      <Tooltip placement='right' color='danger' content="support">
         <button className="text-2xl border-1 border-gray-600 p-1 rounded-full w-[45px] h-[45px] shadow-lg ">
           <i className="fa-solid fa-question"></i>
         </button>
+        </Tooltip>
+      <Tooltip placement='right' color='danger' content="New Pin">
         <button
           className="text-2xl border-1 border-gray-600 p-1 rounded-full w-[45px] h-[45px] shadow-lg "
           onClick={() => handleClickPlus(PATHS.NEW_POST)}
         >
           <i className="fa-solid fa-plus"></i>
         </button>
+        </Tooltip>
       </section>
     </nav>
   );

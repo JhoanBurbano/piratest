@@ -37,7 +37,7 @@ const Pin: React.FC<PinPreview & { isCustom?: boolean }> = ({
     <div
       className="rounded-2xl m-1 relative overflow-hidden cursor-pointer"
       style={{
-        gridRowEnd: `span ${size === 'large' ? '45' : size === 'medium' ? '35' : '20'}`,
+        gridRowEnd: `span ${size === PinSize.LARGE ? '45' : size === PinSize.MEDIUM ? '35' : '20'}`,
       }}
       onMouseOver={() => setShow(true)}
       onMouseLeave={() => setShow(false)}

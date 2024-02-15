@@ -4,7 +4,7 @@ import { useAppDispatch } from './hooks/state.hooks';
 import { useEffect } from 'react';
 import AuthService from './services/auth.service';
 import { thunkSignOut } from './store/thunks/auth.thunk';
-import { Navbar as AppNavbar } from './components';
+import AppNavbar from './components/Chore/Organism/Navbar';
 import { useSelector } from 'react-redux';
 import { selectUser } from './store/slices/auth.slice';
 

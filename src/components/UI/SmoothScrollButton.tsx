@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 
 const SmoothScrollButton = () => {
-  const [showGoTop, setShowGoTop] = useState<Boolean>(false);
+  const [showGoTop, setShowGoTop] = useState<boolean>(false);
   const handleScrollBar = () => {
     if (showGoTop) {
       window.scrollTo({ top: 0, behavior: 'smooth' });

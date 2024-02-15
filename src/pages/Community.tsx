@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-import { PinLists, Searchbar } from '../components';
 import { useAppDispatch } from '../hooks/state.hooks';
 import pinRepository from '../repositories/pin.repository';
 import { searchPinByTag, updateUsersPin } from '../store/thunks/pin.thunk';
@@ -7,6 +6,8 @@ import { PinUploaded } from '../interfaces/pin.interface';
 import { cleanAll } from '../store/slices/gallery.slice';
 import { setLoader } from '../store/slices/ui.slice';
 import { debounce } from '../utils/common.utils';
+import Searchbar from '../components/Chore/Atoms/Searchbar';
+import PinLists from '../components/Chore/Organism/PinLists';
 
 const Community = () => {
   const [search, setSearch] = useState<string>('');

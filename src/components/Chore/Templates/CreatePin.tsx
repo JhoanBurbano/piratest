@@ -13,7 +13,7 @@ const CreatePin = () => {
   const [src, setSrc] = useState<string>();
   const [imgError, setImgError] = useState<string>('');
   const [file, setFile] = useState<File>();
-  const { control, handleSubmit, formState, setValue, watch } = useForm<
+  const { control, handleSubmit, setValue, watch } = useForm<
     Omit<PinUploaded, 'id' | 'img' | 'userName' | 'userProfile'>
   >({
     defaultValues: {

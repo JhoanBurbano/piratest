@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
-import { PinLists, Searchbar } from '../components/';
 import { useAppDispatch } from '../hooks/state.hooks';
 import { scrollImagesByTag, searchImagesByTag } from '../store/thunks/pin.thunk';
 import { cleanAll, cleanPage } from '../store/slices/gallery.slice';
 import { debounce } from '../utils/common.utils';
+import Searchbar from '../components/Chore/Atoms/Searchbar';
+import PinLists from '../components/Chore/Organism/PinLists';
 
 const Dashboard = () => {
   const [search, setSearch] = useState<string>('');

@@ -1,4 +1,3 @@
-// src/services/GalleryService.ts
 import axios from 'axios';
 import { PinUploaded, PixabayImage } from '../interfaces/pin.interface';
 import { PinSize } from '../enums/pin.enum';

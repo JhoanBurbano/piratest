@@ -16,7 +16,7 @@ const Loader: React.FC<LoaderProps> = ({ show }) => {
     return () => {
       document.body.classList.remove('no-scroll');
     };
-  }, []);
+  }, [loader]);
   return (
     <>
       {(loader || show) && (
